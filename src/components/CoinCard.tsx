@@ -1,39 +1,37 @@
-import React, { memo, useState, useEffect, useRef, FC } from 'react';
+import React, { memo, FC, useMemo } from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
-import Icon from '@expo/vector-icons/Ionicons';
+import { getFormattedPercentageValue, getFormattedCurrencyValue } from 'utils/helper';
+import { useDynamicColor } from 'hooks/useDynamicColor';
 import CoinLogo from './CoinLogo';
 import { PriceDirection } from './types';
+import Percentage from './Percentage';
 
 type Props = {
   name: string;
-  price: number;
+  price: string;
   symbol: string;
   onPress: () => void;
-  dailyPercentage: number;
+  dailyPercentage: string;
   priceDirection: PriceDirection;
 };
 
 const CoinCard: FC<Props> = ({ symbol, name, price, dailyPercentage, priceDirection, onPress }) => {
-  const [cardBackgroundColor, setCardBackgroundColor] = useState('#1e2634');
-  const currentValue = useRef<number | null>(null);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    if (currentValue.current !== price && currentValue.current) {
-      setCardBackgroundColor('#103b38');
-      timeout = setTimeout(() => {
-        setCardBackgroundColor('#1e2634');
-      }, 300);
-    }
-    currentValue.current = price;
-
-    return () => clearTimeout(timeout);
-  }, [price]);
+  const priceValue = useMemo(() => getFormattedCurrencyValue(price), [price]);
+  const percentageValue = useMemo(
+    () => getFormattedPercentageValue(dailyPercentage),
+    [dailyPercentage],
+  );
+  const cardBackgroundColor = useDynamicColor({
+    value: price,
+    currentColor: '#1e2634',
+    positiveColor: '#103b38',
+    negativeColor: '#46262b',
+  });
 
   return (
     <Pressable
-      style={[styles.container, { backgroundColor: cardBackgroundColor }]}
-      onPress={onPress}>
+      onPress={onPress}
+      style={[styles.container, { backgroundColor: cardBackgroundColor }]}>
       <View style={styles.firstPart}>
         <CoinLogo coinId={symbol} />
         <View style={styles.coinNameAndSymbol}>
@@ -42,21 +40,8 @@ const CoinCard: FC<Props> = ({ symbol, name, price, dailyPercentage, priceDirect
         </View>
       </View>
       <View style={styles.lastPart}>
-        <Text style={styles.price}>${price}</Text>
-        <View style={styles.dailyPercentageContainer}>
-          <Icon
-            size={12}
-            color={priceDirection === PriceDirection.down ? 'red' : '#31b979'}
-            name={priceDirection === PriceDirection.down ? 'caret-down' : 'caret-up'}
-          />
-          <Text
-            style={[
-              styles.dailyPercentage,
-              { color: priceDirection === PriceDirection.down ? 'red' : '#31b979' },
-            ]}>
-            {dailyPercentage}%
-          </Text>
-        </View>
+        <Text style={styles.price}>{priceValue}</Text>
+        <Percentage priceDirection={priceDirection} value={percentageValue} />
       </View>
     </Pressable>
   );
@@ -71,6 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 8,
+    marginBottom: 2,
   },
   firstPart: {
     flexDirection: 'row',
@@ -85,7 +71,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   name: {
-    fontSize: 14,
+    fontSize: 13,
     color: 'white',
     opacity: 0.5,
   },
@@ -95,6 +81,7 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: '500',
     color: 'white',
+    textAlign: 'right',
   },
   dailyPercentageContainer: {
     flexDirection: 'row',
