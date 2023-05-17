@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { coinsSelector } from 'store/coins/selectors';
-import CoinCard from 'components/CoinCard';
-import { PriceDirection } from 'components/types';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import { increaseCoinLimit, selectCoin } from 'store/coins/actions';
-import { Screen } from 'navigators/Screens';
-import { Coin } from 'store/coins/types';
-import { useAppNavigation } from 'hooks/useAppNavigation';
+import { coinsSelector } from '../store/coins/selectors';
+import CoinCard from '../components/CoinCard';
+import { PriceDirection } from '../components/types';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { increaseCoinLimit, selectCoin } from '../store/coins/actions';
+import { Screen } from '../navigators/Screens';
+import { Coin } from '../store/coins/types';
+import { useAppNavigation } from '../hooks/useAppNavigation';
 
 type Props = {
   loading: boolean;

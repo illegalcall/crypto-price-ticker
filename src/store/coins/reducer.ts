@@ -9,7 +9,7 @@ import {
   updateCoinPrice,
   updateSelectedCoinPrice,
 } from './actions';
-import { PriceDirection } from 'components/types';
+import { PriceDirection } from '../../components/types';
 
 export const initialState: coinsState = {
   coins: [],

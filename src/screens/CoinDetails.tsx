@@ -1,10 +1,10 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import Chart from 'components/Chart';
-import CoinStats from 'containers/CoinStats';
-import Spacer from 'components/core/Spacer';
-import PriceAndPercentage from 'components/PriceAndPercentage';
-import ScreenHeader from 'components/ScreenHeader';
-import TimePeriods from 'components/TimePeriods';
+import Chart from '../components/Chart';
+import CoinStats from '../containers/CoinStats';
+import Spacer from '../components/core/Spacer';
+import PriceAndPercentage from '../components/PriceAndPercentage';
+import ScreenHeader from '../components/ScreenHeader';
+import TimePeriods from '../components/TimePeriods';
 import { StyleSheet, SafeAreaView, FlatList, Platform } from 'react-native';
 import { useSelector } from 'react-redux';
 import {
@@ -13,15 +13,15 @@ import {
   selectedCoinPercentageSelector,
   selectedCoinPriceSelector,
   selectedCoinSelector,
-} from 'store/coins/selectors';
-import { PriceDirection } from 'components/types';
-import CoinMarkets from 'containers/CoinMarkets';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import { fetchCoinHistory, fetchCoinMarkets } from 'store/coins/thunk';
-import CustomButton from 'components/core/Button';
-import { increaseCoinMarketLimit } from 'store/coins/actions';
-import { useCoinCapWebSocket } from 'hooks/useWebSocket';
-import { HistoryInterval } from 'store/coins/types';
+} from '../store/coins/selectors';
+import { PriceDirection } from '../components/types';
+import CoinMarkets from '../containers/CoinMarkets';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { fetchCoinHistory, fetchCoinMarkets } from '../store/coins/thunk';
+import CustomButton from '../components/core/Button';
+import { increaseCoinMarketLimit } from '../store/coins/actions';
+import { useCoinCapWebSocket } from '../hooks/useWebSocket';
+import { HistoryInterval } from '../store/coins/types';
 
 const CoinDetails = () => {
   const dispatch = useAppDispatch();
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0d1c26',
   },
   listContainer: {
-    paddingTop: Platform.select({ android: 24 })
+    paddingTop: Platform.select({ android: 24 }),
   },
   statisticText: {
     fontSize: 16,

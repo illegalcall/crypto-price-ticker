@@ -1,14 +1,14 @@
 import React, { memo, useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { limitSelector, subscribeCoinListSelector } from 'store/coins/selectors';
-import Spacer from 'components/core/Spacer';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import { fetchCoins, searchCoins } from 'store/coins/thunk';
-import { useCoinCapWebSocket } from 'hooks/useWebSocket';
-import useDebounce from 'hooks/useDebounce';
-import CoinList from 'containers/CoinList';
-import CoinsHeader from 'components/CoinsHeader';
+import { limitSelector, subscribeCoinListSelector } from '../store/coins/selectors';
+import Spacer from '../components/core/Spacer';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { fetchCoins, searchCoins } from '../store/coins/thunk';
+import { useCoinCapWebSocket } from '../hooks/useWebSocket';
+import useDebounce from '../hooks/useDebounce';
+import CoinList from '../containers/CoinList';
+import CoinsHeader from '../components/CoinsHeader';
 import { useIsFocused } from '@react-navigation/native';
 
 const Coins = () => {

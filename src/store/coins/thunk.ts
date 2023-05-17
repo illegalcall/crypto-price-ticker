@@ -1,5 +1,5 @@
-import Api from 'services/api';
-import { createAppAsyncThunk } from 'utils/helper';
+import Api from '../../services/api';
+import { createAppAsyncThunk } from '../../utils/helper';
 import { HistoryInterval } from './types';
 
 export const fetchCoins = createAppAsyncThunk(

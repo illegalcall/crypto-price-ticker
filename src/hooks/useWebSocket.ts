@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import { useRef } from 'react';
-import { updateCoinPrice, updateSelectedCoinPrice } from 'store/coins/actions';
+import { updateCoinPrice, updateSelectedCoinPrice } from '../store/coins/actions';
 import { useAppDispatch } from './useAppDispatch';
 
 const baseWebsocketUrl = 'wss://ws.coincap.io';

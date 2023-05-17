@@ -1,4 +1,4 @@
-import { useDynamicColor } from 'hooks/useDynamicColor';
+import { useDynamicColor } from '../hooks/useDynamicColor';
 import React, { FC } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Percentage from './Percentage';

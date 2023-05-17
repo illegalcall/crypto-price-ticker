@@ -1,7 +1,7 @@
 import React, { memo, FC, useMemo } from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
-import { getFormattedPercentageValue, getFormattedCurrencyValue } from 'utils/helper';
-import { useDynamicColor } from 'hooks/useDynamicColor';
+import { getFormattedPercentageValue, getFormattedCurrencyValue } from '../utils/helper';
+import { useDynamicColor } from '../hooks/useDynamicColor';
 import CoinLogo from './CoinLogo';
 import { PriceDirection } from './types';
 import Percentage from './Percentage';

@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import type { RootState } from 'store';
-import { getFormattedPercentageValue, getFormattedCurrencyValue } from 'utils/helper';
-import Percentage from 'components/Percentage';
+import type { RootState } from '../index';
+import { getFormattedPercentageValue, getFormattedCurrencyValue } from '../../utils/helper';
+import Percentage from '../../components/Percentage';
 import React from 'react';
 
 type coinsRootState = Pick<RootState, 'coins'>;

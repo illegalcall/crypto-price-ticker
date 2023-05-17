@@ -1,10 +1,10 @@
-import DataRow from 'components/DataRow';
-import { PriceDirection } from 'components/types';
+import DataRow from '../components/DataRow';
+import { PriceDirection } from '../components/types';
 import { memo } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import { selectedCoinStatsSelector } from 'store/coins/selectors';
+import { selectedCoinStatsSelector } from '../store/coins/selectors';
 
 const CoinStats = () => {
   const { stats, customComponentIndex, Percentage, props, customComponentArrayIndex } =

@@ -1,8 +1,8 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { store } from 'store';
+import { store } from './src/store';
 import { Provider } from 'react-redux';
-import MainNavigator from 'navigators/MainNavigators';
+import MainNavigator from './src/navigators/MainNavigators';
 
 export default function App() {
   return (

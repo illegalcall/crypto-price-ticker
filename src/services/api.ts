@@ -1,5 +1,5 @@
 import wretch from 'wretch';
-import { Coin, HistoryInterval, Market } from 'store/coins/types';
+import { Coin, HistoryInterval, Market } from '../store/coins/types';
 
 const externalApi = wretch('https://api.coincap.io/v2').options({
   credentials: 'include',

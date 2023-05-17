@@ -5,8 +5,8 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import { Screen } from './Screens';
-import Coins from 'screens/Coins';
-import CoinDetails from 'screens/CoinDetails';
+import Coins from '../screens/Coins';
+import CoinDetails from '../screens/CoinDetails';
 
 const Stack = createNativeStackNavigator();
 

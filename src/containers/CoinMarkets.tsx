@@ -1,9 +1,9 @@
-import DataRow from 'components/DataRow';
+import DataRow from '../components/DataRow';
 import { memo } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import { formattedCoinMarketSelector } from 'store/coins/selectors';
+import { formattedCoinMarketSelector } from '../store/coins/selectors';
 
 const CoinMarkets = () => {
   const markets = useSelector(formattedCoinMarketSelector);
